@@ -25,9 +25,9 @@ A modular, object-oriented CLI tool built with **Node.js + TypeScript** for the 
 
 ### API Commands (3)
 
-- `github <username>`: Fetch GitHub user info
-- `weather <city>`: Fetch weather information
-- `quote`: Fetch a random quote/joke
+- `github <username>`: Fetch GitHub user info (live API)
+- `weather <city>`: Fetch weather information (requires API key)
+- `quote`: Fetch a random quote (with local fallback for reliability)
 
 ## Setup
 
@@ -80,7 +80,13 @@ npm run dev -- quote
 ✅ 4. API services (GitHub, Weather, Quote)
 ✅ 5. API commands + final polish (colors, validation, help/version)
 
+## Status: ✅ Project Complete
+
+All 10 commands are implemented and working. The CLI is ready for SESD demo.
+
 ## Notes
 
 - API keys (if required) are provided via environment variables.
 - Uses `commander` for CLI parsing, `chalk` for colors, and `axios` for HTTP.
+- Includes a `utils/Validator` for reusable validation logic.
+- Quote command includes a local fallback to ensure reliability during demos.
