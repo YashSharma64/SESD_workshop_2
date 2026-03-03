@@ -1,0 +1,70 @@
+# yashcli
+
+A modular, object-oriented CLI tool built with **Node.js + TypeScript** for the SESD project.
+
+## Features
+
+- 10 custom commands (7 local + 3 API-based)
+- OOP design using a `BaseCommand` abstraction
+- Modular code structure (commands + services)
+- Colored output (planned)
+- Basic validation and error handling (planned)
+- Help + version support (planned)
+
+## Commands
+
+### Basic Commands (7)
+
+- `greet <name>`: Greet a user
+- `time`: Show current time
+- `random`: Generate a random number
+- `calc <num1> <operator> <num2>`: Simple calculator
+- `fileinfo <filename>`: Show file information
+- `uuid`: Generate a unique id
+- `helpme`: Custom help
+
+### API Commands (3)
+
+- `github <username>`: Fetch GitHub user info
+- `weather <city>`: Fetch weather information
+- `quote`: Fetch a random quote/joke
+
+## Setup
+
+### Prerequisites
+
+- Node.js (LTS recommended)
+- npm
+
+### Install
+
+```bash
+npm install
+```
+
+## Run (development)
+
+Once implemented, the CLI will be run like:
+
+```bash
+npm run dev -- <command> [args]
+```
+
+Examples:
+
+```bash
+npm run dev -- greet yash
+npm run dev -- github torvalds
+```
+
+## Development Plan (Step-by-step commits)
+
+1. Base architecture (`BaseCommand`, minimal dispatcher)
+2. Basic commands (greet, time, random)
+3. Remaining local commands (calc, uuid, fileinfo, helpme)
+4. API services (GitHub, Weather, Quote)
+5. API commands + final polish (colors, validation, help/version)
+
+## Notes
+
+- API keys (if required) will be provided via environment variables.
