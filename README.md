@@ -7,9 +7,9 @@ A modular, object-oriented CLI tool built with **Node.js + TypeScript** for the 
 - 10 custom commands (7 local + 3 API-based)
 - OOP design using a `BaseCommand` abstraction
 - Modular code structure (commands + services)
-- Colored output (planned)
-- Basic validation and error handling (planned)
-- Help + version support (planned)
+- Colored output via `chalk`
+- Basic validation and error handling
+- Help + version support
 
 ## Commands
 
@@ -42,29 +42,45 @@ A modular, object-oriented CLI tool built with **Node.js + TypeScript** for the 
 npm install
 ```
 
-## Run (development)
+### Environment (optional)
 
-Once implemented, the CLI will be run like:
+For the `weather` command, set an OpenWeatherMap API key:
+
+```bash
+# .env file (already .gitignored)
+WEATHER_API_KEY=your_key_here
+```
+
+## Run (development)
 
 ```bash
 npm run dev -- <command> [args]
 ```
 
-Examples:
+### Examples
 
 ```bash
 npm run dev -- greet yash
+npm run dev -- time
+npm run dev -- random
+npm run dev -- calc 10 + 5
+npm run dev -- uuid
+npm run dev -- fileinfo README.md
+npm run dev -- helpme
 npm run dev -- github torvalds
+npm run dev -- weather London
+npm run dev -- quote
 ```
 
 ## Development Plan (Step-by-step commits)
 
-1. Base architecture (`BaseCommand`, minimal dispatcher)
-2. Basic commands (greet, time, random)
-3. Remaining local commands (calc, uuid, fileinfo, helpme)
-4. API services (GitHub, Weather, Quote)
-5. API commands + final polish (colors, validation, help/version)
+✅ 1. Base architecture (`BaseCommand`, minimal dispatcher)
+✅ 2. Basic commands (greet, time, random)
+✅ 3. Remaining local commands (calc, uuid, fileinfo, helpme)
+✅ 4. API services (GitHub, Weather, Quote)
+✅ 5. API commands + final polish (colors, validation, help/version)
 
 ## Notes
 
-- API keys (if required) will be provided via environment variables.
+- API keys (if required) are provided via environment variables.
+- Uses `commander` for CLI parsing, `chalk` for colors, and `axios` for HTTP.
