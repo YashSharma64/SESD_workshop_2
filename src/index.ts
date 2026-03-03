@@ -7,6 +7,9 @@ import { CalcCommand } from "./commands/CalcCommand";
 import { UuidCommand } from "./commands/UuidCommand";
 import { FileInfoCommand } from "./commands/FileInfoCommand";
 import { HelpMeCommand } from "./commands/HelpMeCommand";
+import { GithubCommand } from "./commands/GithubCommand";
+import { WeatherCommand } from "./commands/WeatherCommand";
+import { QuoteCommand } from "./commands/QuoteCommand";
 
 const greet = new GreetCommand();
 const time = new TimeCommand();
@@ -15,6 +18,9 @@ const calc = new CalcCommand();
 const uuid = new UuidCommand();
 const fileinfo = new FileInfoCommand();
 const helpme = new HelpMeCommand();
+const github = new GithubCommand();
+const weather = new WeatherCommand();
+const quote = new QuoteCommand();
 
 const program = new Command();
 
@@ -63,9 +69,26 @@ program
   .description(helpme.description)
   .action(() => helpme.run());
 
+program
+  .command(github.name)
+  .description(github.description)
+  .argument("<username>", "GitHub username")
+  .action((user) => github.run([user]));
+
+program
+  .command(weather.name)
+  .description(weather.description)
+  .argument("<city>", "City name")
+  .action((city) => weather.run([city]));
+
+program
+  .command(quote.name)
+  .description(quote.description)
+  .action(() => quote.run());
+
 program.addHelpText(
   "after",
-  `\n${chalk.gray("Phase 3: All local commands implemented. API commands next.")}`
+  `\n${chalk.gray("Phase 5: All 10 commands implemented. CLI complete.")}`
 );
 
 if (process.argv.length <= 2) {
