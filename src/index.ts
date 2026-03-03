@@ -1,8 +1,12 @@
 import { Command } from "commander";
 import chalk from "chalk";
 import { GreetCommand } from "./commands/GreetCommand";
+import { TimeCommand } from "./commands/TimeCommand";
+import { RandomCommand } from "./commands/RandomCommand";
 
 const greet = new GreetCommand();
+const time = new TimeCommand();
+const random = new RandomCommand();
 
 const program = new Command();
 
@@ -17,9 +21,19 @@ program
   .argument("<name>", "Name to greet")
   .action((name) => greet.run([name]));
 
+program
+  .command(time.name)
+  .description(time.description)
+  .action(() => time.run());
+
+program
+  .command(random.name)
+  .description(random.description)
+  .action(() => random.run());
+
 program.addHelpText(
   "after",
-  `\n${chalk.gray("Phase 2: Adding basic commands. More coming soon.")}`
+  `\n${chalk.gray("Phase 2: Basic commands (greet, time, random) implemented.")}`
 );
 
 if (process.argv.length <= 2) {
